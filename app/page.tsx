@@ -2,99 +2,86 @@ import Link from "next/link";
 import menu from "@/data/menu.json";
 
 const featuredFlavours = menu.flavours.filter((flavour) => flavour.set === "core").slice(0, 4);
+const flavourColours = ["flavour-berry", "flavour-chocolate", "flavour-vanilla", "flavour-caramel"];
 
 export default function Home() {
   return (
     <main>
-      <section className="hero hero-editorial">
-        <div className="hero-copy">
+      <section className="home-hero">
+        <div className="hero-colour-panel">
           <p className="eyebrow">HOMEMADE ICE CREAM · BERGVILLE, KZN</p>
-          <h1>A little joy.<br /><em>One scoop</em><br />at a time.</h1>
-          <p className="hero-description">
-            Homemade ice cream, thoughtful flavours and easy pre-orders.
-            Made for slow afternoons, family tables and the moments worth sharing.
-          </p>
+          <h1>Good days<br />start with<br /><em>a scoop.</em></h1>
+          <p className="hero-description">A little homemade happiness for everyday moments, family get-togethers and the celebrations that deserve something sweet.</p>
           <div className="hero-actions">
-            <Link className="button" href="/menu">Explore the menu <span aria-hidden="true">↗</span></Link>
-            <Link className="text-link" href="/about">Get to know us</Link>
+            <Link className="button" href="/menu">Explore our flavours <span aria-hidden="true">↗</span></Link>
+            <Link className="text-link" href="/about">Our story</Link>
           </div>
-          <p className="hero-note"><span className="status-dot" /> Proudly based in Bergville, KwaZulu-Natal</p>
+          <div className="hero-signoff"><span className="hero-sun" aria-hidden="true">✳</span><span>MADE WITH CARE IN BERGVILLE</span></div>
         </div>
-        <figure className="hero-photo">
-          <img
-            src="https://images.unsplash.com/photo-1638212291123-8d20f5353333?auto=format&fit=crop&w=1400&q=85"
-            alt="Two scoops of creamy gelato in a crisp waffle cone, shown as serving inspiration"
-            fetchPriority="high"
-          />
-          <figcaption>Serving inspiration · Your chosen flavours, made to order.</figcaption>
-          <div className="photo-note"><span>MEPHO</span><span>GOOD THINGS, MADE TO SHARE.</span></div>
-        </figure>
+        <div className="hero-image-panel">
+          <img src="https://images.unsplash.com/photo-1638212291123-8d20f5353333?auto=format&fit=crop&w=1500&q=88" alt="Ice cream cones photographed as serving inspiration, not a Mepho Treats product photograph" fetchPriority="high" />
+          <div className="hero-image-label"><span>THE MEPHO FEELING</span><b>Make today a little sweeter.</b></div>
+        </div>
       </section>
 
-      <section className="trust-strip" aria-label="Ordering information">
-        <span>SMALL-BATCH HOMEMADE ICE CREAM</span>
-        <span className="trust-divider">/</span>
-        <span>PRE-ORDER ON WHATSAPP</span>
-        <span className="trust-divider">/</span>
-        <span>BERGVILLE, SOUTH AFRICA</span>
+      <section className="brand-ribbon" aria-label="About Mepho Treats">
+        <span>HOMEMADE GOODNESS</span><i>✳</i><span>BERGVILLE, KZN</span><i>✳</i><span>MADE FOR SHARING</span><i>✳</i><span>ORDER ON WHATSAPP</span>
       </section>
 
-      <section className="section menu-preview">
+      <section className="section flavour-section">
         <div className="section-heading">
-          <div>
-            <p className="eyebrow">SOMETHING FOR EVERY SWEET TOOTH</p>
-            <h2>Find your <em>favourite.</em></h2>
-            <p className="section-lede">From familiar classics to a little something different.</p>
-          </div>
-          <Link className="text-link" href="/menu">See the full menu <span aria-hidden="true">↗</span></Link>
+          <div><p className="eyebrow">SCOOP YOUR HAPPY</p><h2>Meet the <em>flavours.</em></h2><p className="section-lede">A few favourites to get you started. Availability can change, so check in before ordering.</p></div>
+          <Link className="text-link" href="/menu">View menu & prices <span aria-hidden="true">↗</span></Link>
         </div>
-        <div className="flavour-list">
+        <div className="flavour-cards">
           {featuredFlavours.map((flavour, index) => (
-            <article className="flavour-row" key={flavour.id}>
-              <span className="flavour-number">0{index + 1}</span>
+            <article className={`flavour-card ${flavourColours[index % flavourColours.length]}`} key={flavour.id}>
+              <div className="flavour-card-top"><span>0{index + 1}</span><span>MEPHO FAVOURITE</span></div>
+              <div className="flavour-card-mark" aria-hidden="true">{["✳", "✦", "❋", "✳"][index]}</div>
               <h3>{flavour.name}</h3>
-              <span className="flavour-category">THE CLASSICS</span>
+              <Link href="/menu" aria-label={`Order ${flavour.name}`}>Find it on the menu <span aria-hidden="true">↗</span></Link>
             </article>
           ))}
         </div>
-        <p className="menu-footnote">Flavour availability may vary. Ask us on WhatsApp what is ready for your order.</p>
       </section>
 
-      <section className="order-section">
-        <div className="order-copy">
-          <p className="eyebrow">A SIMPLE WAY TO MAKE SOMEONE'S DAY</p>
-          <h2>Your next treat<br />is just a <em>message away.</em></h2>
-          <p>Choose your size and flavour, add your details, then send your order through WhatsApp. We’ll confirm the details with you directly.</p>
-          <Link className="button button-light" href="/menu">Build your order <span aria-hidden="true">↗</span></Link>
+      <section className="story-feature">
+        <div className="story-photo">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1200&q=88" alt="A colourful ice cream dessert photographed as serving inspiration" loading="lazy" />
+          <span>GOOD THINGS ARE BETTER SHARED</span>
         </div>
-        <div className="order-details">
-          <div><span>01</span><p><b>Choose your scoops</b><small>Browse cups, tubs and flavours.</small></p></div>
-          <div><span>02</span><p><b>Send your order</b><small>Complete the order form and continue to WhatsApp.</small></p></div>
-          <div><span>03</span><p><b>We’ll confirm with you</b><small>Collection or delivery details are arranged directly.</small></p></div>
+        <div className="story-copy">
+          <p className="eyebrow">A LOCAL TREAT WITH A LOT OF HEART</p>
+          <h2>From our home<br />to <em>your happy place.</em></h2>
+          <p>Mepho Treats brings homemade ice cream to Bergville and the people who make it special. Whether it’s a quick afternoon treat or a table full of family, there’s always room for one more scoop.</p>
+          <Link className="button button-dark" href="/about">A little about us <span aria-hidden="true">↗</span></Link>
         </div>
       </section>
 
-      <section className="catering-section">
-        <div className="catering-image">
-          <img
-            src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1100&q=85"
-            alt="A bowl of ice cream with fresh fruit, shown as dessert inspiration"
-            loading="lazy"
-          />
-          <span>MADE FOR SHARING</span>
+      <section className="order-feature">
+        <div className="order-feature-heading"><p className="eyebrow">YOUR SCOOPS, YOUR WAY</p><h2>Ordering is <em>easy.</em></h2><p>Choose your favourites online, then send your order to us on WhatsApp. We’ll confirm the details with you.</p></div>
+        <div className="order-steps">
+          <article><span>01</span><h3>Pick your treats</h3><p>Choose a cup, tub and your favourite flavour.</p></article>
+          <article><span>02</span><h3>Send your order</h3><p>Share your details securely through WhatsApp.</p></article>
+          <article><span>03</span><h3>We’ll confirm</h3><p>We’ll get back to you about collection or delivery.</p></article>
         </div>
+        <Link className="button button-light" href="/menu">Start an order <span aria-hidden="true">↗</span></Link>
+      </section>
+
+      <section className="catering-feature">
         <div className="catering-copy">
-          <p className="eyebrow">CELEBRATIONS, BIG AND SMALL</p>
-          <h2>Make room for<br /><em>something sweet.</em></h2>
-          <p>Planning a birthday, wedding, school event or family get-together? Ask us about our 2 L and 5 L catering tubs.</p>
-          <Link className="text-link" href="/catering">Explore catering options <span aria-hidden="true">↗</span></Link>
+          <p className="eyebrow">BIRTHDAYS · WEDDINGS · FAMILY DAYS</p>
+          <h2>Bring the<br /><em>good stuff.</em></h2>
+          <p>Make your next gathering a little sweeter with our larger tubs for sharing. Get in touch to discuss your date, quantity and flavour choices.</p>
+          <Link className="text-link" href="/catering">Explore catering <span aria-hidden="true">↗</span></Link>
         </div>
+        <div className="catering-stamp"><span>MADE</span><b>to<br />share</b><span>WITH LOVE IN KZN</span></div>
       </section>
 
       <section className="final-cta">
         <p className="eyebrow">A LITTLE HAPPINESS GOES A LONG WAY</p>
-        <h2>Let’s make it<br /><em>a Mepho moment.</em></h2>
-        <Link className="button" href="/menu">Browse the menu <span aria-hidden="true">↗</span></Link>
+        <h2>Ready for your<br /><em>Mepho moment?</em></h2>
+        <Link className="button" href="/menu">Let’s get scooping <span aria-hidden="true">↗</span></Link>
       </section>
     </main>
   );
