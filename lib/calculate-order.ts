@@ -1,5 +1,5 @@
 import menu from "@/data/menu.json";
-import type { CartLine, OrderInput, OrderTotals } from "./types";
+import type { OrderInput, OrderTotals } from "./types";
 
 const items = menu.items;
 export function calculateOrder(input: OrderInput): OrderTotals {
