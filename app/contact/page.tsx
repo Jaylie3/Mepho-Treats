@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function ContactPage(){return <main className="simple-page"><p className="eyebrow">SAY HELLO</p><h1>Let's make<br/><em>something sweet.</em></h1><p>Based in Bergville, KwaZulu-Natal. Get in touch for pre-orders, collection, local delivery and event enquiries.</p><Link className="button" href="https://wa.me/27837752498">Chat on WhatsApp ↗</Link><p className="notice">Business number and exact delivery areas must be confirmed before launch.</p></main>}

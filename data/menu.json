@@ -1,0 +1,33 @@
+{
+  "items": [
+    {"id":"single","name":"Single Cup","size":"100 ml","litres":0.1,"price":25,"notes":"Loyalty-eligible"},
+    {"id":"double","name":"Double Cup","size":"200 ml","litres":0.2,"price":40,"toppingsAddOn":5,"notes":"+R5 for toppings"},
+    {"id":"parfait","name":"Berry Parfait Cup","size":"200 ml","litres":0.2,"price":45,"notes":"Layered biscuit & berry"},
+    {"id":"family","name":"Family Tub","size":"500 ml","litres":0.5,"price":85,"notes":"Friday household treat"},
+    {"id":"party","name":"Party Tub","size":"1 L","litres":1,"price":150,"discountQty":3,"discountPct":5,"subscriptionPrice":140},
+    {"id":"cat2","name":"Catering Tub","size":"2 L","litres":2,"price":280,"catering":true},
+    {"id":"cat5","name":"Catering Tub","size":"5 L","litres":5,"price":650,"catering":true},
+    {"id":"alt100","name":"Dairy-Free / Sugar-Free Cup","size":"100 ml","litres":0.1,"price":30,"flavourSet":"alternative"},
+    {"id":"alt200","name":"Dairy-Free / Sugar-Free Cup","size":"200 ml","litres":0.2,"price":45,"flavourSet":"alternative"}
+  ],
+  "flavours": [
+    {"id":"vanilla","name":"Vanilla Bean","set":"core"},
+    {"id":"fudge","name":"Chocolate Fudge Brownie","set":"core"},
+    {"id":"strawberry","name":"Strawberry Berry Swirl","set":"core"},
+    {"id":"caramel","name":"Salted Caramel Crunch","set":"core"},
+    {"id":"peanut","name":"Peanut Butter & Choc Chip Swirl","set":"core"},
+    {"id":"coconut","name":"Coconut Berry Nice Cream (dairy-free)","set":"alternative"},
+    {"id":"sugarfree","name":"Sugar-Free Vanilla (erythritol/stevia)","set":"alternative"}
+  ],
+  "allergens": {
+    "vanilla": ["milk"], "fudge": ["milk", "egg", "gluten"],
+    "strawberry": ["milk"], "caramel": ["milk"], "peanut": ["milk", "peanuts"],
+    "coconut": ["coconut"], "sugarfree": ["CONFIRM ingredients"]
+  },
+  "settings": {
+    "deliveryFee": 15, "freeDeliveryFrom": 200, "cateringDeposit": 0.5,
+    "cateringNoticeDays": 5, "cutoffWeekday": 4, "cutoffTime": "17:00",
+    "timezone": "Africa/Johannesburg", "whatsappNumber": "27837752498",
+    "ordersOpen": true, "coaStatus": false
+  }
+}
